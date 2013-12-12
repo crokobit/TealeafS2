@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
   has_many :categories, through: :post_categories
 
   #validates :title, presence: true, length: {minimun: 5}
-  #validates :description, presence: true
+  validates :description, presence: true
   #validates :url, presence: true, #uniqueness: true
 
 end
