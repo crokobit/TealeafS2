@@ -1,12 +1,11 @@
 class PostsController < ApplicationController
+  before_action :set_post,only: [:show, :edit, :update]
 
   def index
     @posts = Post.all
   end
 
-  def show
-    @post = Post.find(params[:id])
-  end
+  def show; end
 
   def new
     @post = Post.new
@@ -24,18 +23,19 @@ class PostsController < ApplicationController
     #render :text => post_params.inspect
   end
 
-  def edit
-    @post = Post.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @post = Post.find(params[:id])
     if @post.update(post_params)#@update???
       flash[:notice] = " This post was updated. "
       redirect_to post_path(@post)
     else
       render :edit
     end
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 
   private
