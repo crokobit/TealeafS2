@@ -1,0 +1,22 @@
+<%= render 'shared/content_title', title: 'All Posts' %>
+
+<p class='lead'>
+	All Posts
+	<hr/>
+</p>
+
+<% @posts.each do |post|%>
+	<div class="row">
+		<div class = 'span8 well'>
+			<% post.categories.each do  |category|   %>
+				<%= category.name %>
+			<% end %>
+			<br>
+			<%= post.title %><br>
+			<%= post.description %><br>
+			<%= link_to 'url',post.url %><br>
+			<%= post.creator.name %><br> 
+			<%= link_to "#{post.comments.size} comments", post_path(post) %>
+		</div>
+	</div>
+<% end %>
