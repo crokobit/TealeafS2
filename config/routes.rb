@@ -31,7 +31,9 @@ PostitTemplate::Application.routes.draw do
   #     resources :comments, :sales
   #     resource :seller
   #   end
-  resources :posts, except: [:destroy]
+  resources :posts, except: [:destroy] do
+    resources :comments, only: [:index, :new, :create]
+  end
 
   resources :categories
 

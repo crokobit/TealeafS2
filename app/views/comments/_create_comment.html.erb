@@ -1,0 +1,11 @@
+<%= render 'shared/error_partial', errors: @comment.errors %>
+
+<div class = 'well'>
+  <%= form_for [@post,@comment] do |f|%>
+    <div class = 'control-group'>
+      <%= f.label :description ,'Leave a comment' %>
+      <%= f.text_area :description, rows: 3,class: 'span' %>
+    </div>
+    <%= f.submit 'Leave a comment', class: 'btn btn-primary' %>
+  <% end %>
+</div>
