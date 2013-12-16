@@ -7,6 +7,30 @@
   </li>
 </ul>
 
+<div class='btn-group nav_item'>
+  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    New Category
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <% Category.all.each do |category|%>
+      <li>
+        <%= link_to category.name, category_path(category) %>
+      </li>
+    <% end %>
+    
+    <li class='divider'></li>
+    
+    <li>
+      <%= link_to(new_category_path) do %>
+        <i class = "icon-plus"></i>
+        New Category
+      <% end %>
+    </li>
+  
+  </ul>
+</div>
+
 <div class='nav_item'>
-  <%= link_to 'New Post', new_post_path, class: 'btn btn-sucess btn-small' %>
+  <%= link_to 'New Post', new_post_path, class: 'btn btn-success btn-small' %>
 </div>

@@ -1,4 +1,10 @@
 <div class = 'span8 well'>
-  <h4><%= comment.title %></h4>
-  <p><%= comment.description %></p>
+  <em>"<%= comment.description %>"</em>
+  <br>
+  <span class="quiet">created by</span>
+  <%= link_to(comment.creator.name,user_path(comment.creator)) %>
+  <small>
+    at
+    <%= comment.created_at %>
+  </small>
 </div>

@@ -1,0 +1,10 @@
+<p class='pull-right'>
+  <%= link_to "Edit this Category's name", edit_category_path(@category) %>
+</p>
+
+<% header = link_to('All Posts', posts_path) + " >> #{@category.name}" %>
+
+<%= render 'shared/content_title', title: header %>
+
+<%= render 'posts/show_posts' %>
+

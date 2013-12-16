@@ -1,0 +1,22 @@
+<%= render 'shared/content_title', title: what_title %>
+
+<%= render 'shared/error_partial', errors: @post.errors %>
+
+
+<div class = 'well'>
+  <%= form_for @post do |f|%>
+    <div class = 'control-group'>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div class = 'control-group'>
+      <%= f.label :url %>
+      <%= f.text_field :url %>
+    </div>
+    <div class = 'control-group'>
+      <%= f.label :description %>
+      <%= f.text_area :description, rows: 5 %>
+    </div>
+    <%= f.submit what_show_submmit, class: 'btn btn-primary' %>
+  <% end %>
+</div>

@@ -33,6 +33,9 @@ PostitTemplate::Application.routes.draw do
   #   end
   resources :posts, except: [:destroy]
 
+  resources :categories
+
+  resources :users
   # Example resource route with more complex sub-resources:
   #   resources :products do
   #     resources :comments
