@@ -4,7 +4,7 @@
 
 <%= render @post.categories %>
 
-<% header = link_to(@post.title, @post.url) %>
+<% header = link_to(@post.title, fix_url( @post.url ) ) %>
 
 <%= render 'shared/content_title', title: header  %>
 

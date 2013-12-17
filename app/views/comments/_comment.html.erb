@@ -5,6 +5,6 @@
   <%= link_to(comment.creator.name,user_path(comment.creator)) %>
   <small>
     at
-    <%= comment.created_at %>
+    <%= display_datetime ( comment.created_at ) %>
   </small>
 </div>

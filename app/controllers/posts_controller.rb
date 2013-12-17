@@ -16,6 +16,8 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.creator = User.first # TODO: change it after implementing authentication
+    #@post.category_ids = params[:category_ids] strong parameter
+    #binding.pry
     if @post.save
       flash[:notice] = "Your Post was created."
       redirect_to posts_path
@@ -25,7 +27,9 @@ class PostsController < ApplicationController
     #render :text => post_params.inspect
   end
 
-  def edit; end
+  def edit
+    
+  end
 
   def update
     if @post.update(post_params)#@update???
@@ -43,6 +47,6 @@ class PostsController < ApplicationController
   private
 
     def post_params
-      params.require(:post).permit(:title, :url, :description)
+      params.require(:post).permit(:title, :url, :description, category_ids:[])
     end
 end
