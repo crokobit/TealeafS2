@@ -38,6 +38,9 @@ PostitTemplate::Application.routes.draw do
   resources :categories
 
   resources :users
+
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
   # Example resource route with more complex sub-resources:
   #   resources :products do
   #     resources :comments
