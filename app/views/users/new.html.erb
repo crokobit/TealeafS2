@@ -1,0 +1,17 @@
+<%= render 'shared/content_title', title: 'Regisiter' %>
+
+<%= render 'shared/error_partial', errors: @user.errors %>
+
+<div class="well">
+  <%= form_for @user do |f| %>
+    <div class="control-group">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="control-group">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <%= f.submit "Regisiter", class: 'btn btn-success' %>
+  <% end %>
+</div>
