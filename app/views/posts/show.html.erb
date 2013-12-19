@@ -1,7 +1,8 @@
-<p class='pull-right'>
-  <%= link_to 'Edit this post', edit_post_path(@post) %>
-</p>
-
+<% if logged_in? %> 
+  <p class='pull-right'>
+    <%= link_to 'Edit this post', edit_post_path(@post) %>
+  </p>
+<% end %>
 <%= render @post.categories %>
 
 <% header = link_to(@post.title, fix_url( @post.url ) ) %>
@@ -9,8 +10,8 @@
 <%= render 'shared/content_title', title: header  %>
 
 <%= render 'shared/content_title', title: @post.description %>
-
+<% if logged_in? %>
 <%= render 'comments/create_comment' %>
-
+<% end %>
 <%= render @post.comments %>
 

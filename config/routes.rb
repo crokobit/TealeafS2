@@ -37,10 +37,11 @@ PostitTemplate::Application.routes.draw do
 
   resources :categories
 
-  resources :users
+  resources :users, only: [:show ,:create, :edit, :update]
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
   # Example resource route with more complex sub-resources:
   #   resources :products do
   #     resources :comments

@@ -1,10 +1,11 @@
 class CommentsController < ApplicationController
 
+  before_action :require_user
 
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params)
-    @comment.creator = User.first # TODO: change it after implementing authentication
+    @comment.creator = current_user
     if @comment.save
       flash[:notice] = 'You leave a comment.'
       redirect_to posts_path(@comment.post)
