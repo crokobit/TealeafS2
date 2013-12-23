@@ -1,5 +1,12 @@
+<% show_post ||= false %>
+
 <div class = 'span8 well'>
-  <em>"<%= comment.description %>"</em>
+  <em>
+    "<%= comment.description %>"
+    <% if show_post %>
+      on <%= link_to comment.post.title, post_path(comment.post) %>
+    <% end %>
+  </em>
   <br>
   <span class="quiet">created by</span>
   <%= link_to(comment.creator.name,user_path(comment.creator)) %>

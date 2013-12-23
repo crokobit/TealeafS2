@@ -1,0 +1,14 @@
+<div class="well">
+  <%= form_for @user do |f| %>
+    <div class="control-group">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="control-group">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+      <%# when update, password didn't prefill! %>
+    </div>
+    <%= f.submit (@user.new_record? ? "Regisiter" : "Update"), class: 'btn btn-success' %>
+  <% end %>
+</div>
