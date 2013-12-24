@@ -10,8 +10,10 @@
 <%= render 'shared/content_title', title: header  %>
 
 <%= render 'shared/content_title', title: @post.description %>
+
 <% if logged_in? %>
   <%= render 'comments/create_comment' %>
 <% end %>
+
 <%= render @post.comments %>
 

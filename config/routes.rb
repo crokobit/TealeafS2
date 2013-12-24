@@ -32,6 +32,15 @@ PostitTemplate::Application.routes.draw do
   #     resource :seller
   #   end
   resources :posts, except: [:destroy] do
+
+    member do
+      post 'vote'
+    end
+
+    #member -> for every post
+    #collection -> for single posts route
+
+
     resources :comments, only: [:index, :new, :create]
   end
 
