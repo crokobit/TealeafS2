@@ -41,7 +41,11 @@ PostitTemplate::Application.routes.draw do
     #collection -> for single posts route
 
 
-    resources :comments, only: [:index, :new, :create]
+    resources :comments, only: [:index, :new, :create] do
+      member do
+        post 'vote'
+      end
+    end
   end
 
   resources :categories

@@ -15,5 +15,5 @@
   <%= render 'comments/create_comment' %>
 <% end %>
 
-<%= render @post.comments %>
+<%= render @post.comments.sort_by{|x| x.total_votes }.reverse %>
 
