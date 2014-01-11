@@ -4,7 +4,7 @@
   <div class="span0 well text-center">
     
     <% if logged_in? %>  
-      <%= link_to vote_post_comment_path(comment.post,comment,vote: true), method: 'post' do %>
+      <%= link_to vote_post_comment_path(comment.post,comment,vote: true), method: 'post', remote: true do %>
         <i class="icon-arrow-up"></i>
       <% end %>
 
@@ -14,13 +14,13 @@
 
 
 
-      <%=comment.total_votes%> votes
+    <span id="comment_<%= comment.id %>_votes"><%=comment.total_votes%> votes</span>
     
 
 
     <% if logged_in? %> 
     <br>
-      <%= link_to vote_post_comment_path(comment.post,comment,vote: false), method: 'post' do %>
+      <%= link_to vote_post_comment_path(comment.post,comment,vote: false), method: 'post', remote: true do %>
         <i class="icon-arrow-down"></i>
       <% end %>
     <% end %>
