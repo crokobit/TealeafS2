@@ -41,15 +41,21 @@ class PostsController < ApplicationController
   end
 
   def vote
-    #binding.pry
-    vote = Vote.create(voteable: @post, creator: current_user, vote: params[:vote])
-    if vote.valid?
-      flash[:notice] = 'vote!! success'
-    else
-      flash[:error] = 'you can vote only once'
+    @vote = Vote.create(voteable: @post, creator: current_user, vote: params[:vote])
+    
+    respond_to do |format|
+      
+      format.html do
+        if @vote.valid?
+          flash[:notice] = 'vote!! success'
+        else
+          flash[:error] = 'you can vote only once'
+        end
+        redirect_to :back
+      end
+      format.js 
+    
     end
-    redirect_to :back
-    #binding.pry
   end
 
   def set_post
