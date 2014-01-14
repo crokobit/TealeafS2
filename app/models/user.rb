@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include Sluggable
   has_many :posts
   has_many :comments
   has_many :votes
@@ -10,11 +11,5 @@ class User < ActiveRecord::Base
 
   before_save :generate_slug
 
-  def generate_slug
-    self.slug = self.name.gsub(" ","-").downcase
-  end
-
-  def to_param
-    self.slug
-  end
+  sluggable_column :name
 end
