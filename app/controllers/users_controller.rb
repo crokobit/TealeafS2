@@ -40,8 +40,8 @@ class UsersController < ApplicationController
   end
 
   def require_same_user
-    #binding.pry
-    if @user.id != params[:id].to_i
+
+    if @user.slug != params[:id]
       flash[:error] = 'WHAT!!'
       redirect_to root_path
     end
@@ -50,6 +50,6 @@ class UsersController < ApplicationController
   private
 
   def user_param
-    params.require(:user).permit(:name, :password)
+    params.require(:user).permit(:name, :password, :time_zone)
   end
 end

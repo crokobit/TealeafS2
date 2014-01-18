@@ -9,6 +9,11 @@
       <%= f.password_field :password %>
       <%# when update, password didn't prefill! %>
     </div>
+    <div class="control-group">
+      <%= f.label :time_zone %>
+      <%= f.time_zone_select:time_zone, ActiveSupport::TimeZone.us_zones, default: Time.zone.name %>
+      <%# when update, password didn't prefill! %>
+    </div>
     <%= f.submit (@user.new_record? ? "Regisiter" : "Update"), class: 'btn btn-success' %>
   <% end %>
 </div>

@@ -7,7 +7,7 @@ module Sluggable
 
   def generate_slug
     the_slug = self.class.slug_column.to_sym
-    self.slug = the_slug.gsub(' ','-').downcase
+    self.slug = self.send(the_slug).gsub(' ','-').downcase
   end
 
   def to_param
